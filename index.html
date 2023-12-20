@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Mundo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .hola-mundo {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .flechas {
+            font-size: 2em;
+            display: flex;
+            justify-content: space-evenly; /* Cambiado de space-between a space-evenly */
+            width: 200px; /* Ajusta el ancho total del contenedor de flechas según tus preferencias */
+        }
+
+        .flechas i {
+            margin: 30px; /* Ajusta el espacio entre las flechas según tus preferencias */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="hola-mundo" id="texto">
+        Hola Lucía.
+        Bienvenida a tu página para ver tu regalo. Para avanzar, pulsa la flecha de la derecha.
+    </div>
+    <div class="flechas">
+        <i class="fas fa-arrow-left" onclick="cambiarTexto(-1)"></i>
+        <i class="fas fa-arrow-right" onclick="cambiarTexto(1)"></i>
+    </div>
+
+    <script>
+        var textos = ["Hola Lucía.\n\nBienvenida a tu página para ver tu regalo. Para avanzar, pulsa la flecha de la derecha.",
+         "Bien. Para volver atrás por si te has perdido algo, prueba a darle a la de la izquierda.",
+          "Muy bien hecho. Puedes continuar.",
+        "Te habrás llevado una sorpresa al ver que la caja no pesa y está vacía...",
+        "Normal",
+        "Pero te he preparado esta sorpresa para que pienses un regalo que te haga ilusión",
+        "Piensa el regalo que más quieras, te doy 3 segundos.....",
+        "3",
+        "2....",
+        "1............",
+        "Tiempo",
+        "Como te puedo leer la mente, en la siguiente pantalla aparecerá tu regalo... EL MEJOR REGALO QUE PUEDES TENER.... ¿Estás preparada?",
+        "En esta no, en la siguiente",
+        "ÁLVARO Y DUQUE SOMOS TU REGALO",
+        "Jejejejeje",
+        "Como eres la mejor persona del universo, también te he preparado otro detalle...",
+        "Para verlo, vas a empezar a quitar bolas de papel de la caja cuando te diga.",
+        "Cuando saques las bolas, encontrarás un papel tapando una sorpresa.",
+        "Esta sorpresa te indicará la pista para encontrar tu regalo, porque...",
+        "¿Qué podrá haber en el fondo de esta caja?",
+        "No preguntes y empieza a sacar bolas (sin tirarlas que se pone loco el niño).\nBesos y espero que te guste.\n\nPuedes cerrar la página.",
+        "",
+        "",
+        "",
+        ""
+];
+        var indiceTexto = 0;
+
+        function cambiarTexto(direccion) {
+            indiceTexto += direccion;
+
+            if (indiceTexto < 0) {
+                indiceTexto = textos.length - 1;
+            } else if (indiceTexto >= textos.length) {
+                indiceTexto = 0;
+            }
+
+            document.getElementById('texto').textContent = textos[indiceTexto];
+        }
+    </script>
+</body>
+</html>
